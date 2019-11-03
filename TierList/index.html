@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Tier-o-matic</title>
+        <link rel="shortcut icon" href="./imgs/deFavicon.png" type="image/x-icon"/>
+        <link rel="stylesheet" href="./src/style.css"/>
+        <script src="./src/script.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="copyright">&copy;Johannes Ström</div>
+        <div class="overlay" id="canvOverlay"></div>
+        <div class="overlay" id="cropMain">
+            <div class="cropMain">
+                <h4>Crop image.</h4>
+                <div class="cropImgHolder">
+                    <div id="cropImgDiv" style="background-image:url(imgs/TierListBG.jpg);">
+                        <img id="cropImgImg" src="imgs/TierListBG.jpg" alt="img not found" />
+                    </div>
+                </div><br/>
+                <label class="cropLabel" for="rangeX">X: </label>
+                <input type="range" class="cropSlider" min="0" max="100" value="0" step="0.01" name="rangeX" id="rangeX" oninput="cut()"/><br/>
+                <label class="cropLabel" for="rangeY">Y: </label>
+                <input type="range" class="cropSlider" min="0" max="100" value="0" step="0.01" name="rangeY" id="rangeY" oninput="cut()"/><br/>
+                <label class="cropLabel" for="rangeZoom">Scale: </label>
+                <input type="range" class="cropSlider" min="1" max="10" value="5" step="0.01" name="rangeZoom" id="rangeZoom" oninput="resize()"/><br/>
+                <button onclick="endCrop()">Submit</button><button onclick="cancelCrop()">Cancel</button>
+            </div>
+        </div>
+        <div class="mainFormCon">
+            <div class="item formCon">
+                <div>
+                    <h3>Item maker.</h3>
+                    <label for="IName">Item label:</label><br/>
+                    <input id="IName" type="text" name="IName" value="Item"/>
+                </div>
+                <div>
+                    <label for="itemURL">Item image:</label><br/>
+                    <input id="itemURL" type="text" name="itemURL" value="www.image.com/image.jpg"/><br/>
+                    <input id="itemFile" type="file" name="itemFile" onchange="toitemurl(this)"/>
+                    <input type="button" value="Browse..." onclick="document.getElementById('itemFile').click();"/>
+                    <input type="button" value="Clear" onclick="iname.value=itemurl.value=''"/>
+                </div>
+                <div>
+                    <label for="tierSelect">Tier select:</label><br/>
+                    <select id="tierSelect" class="dropdown" name="tierSelect">
+
+                    </select>
+                </div>
+                <button type="button" name="isubmit" onclick="initiateCrop(itemURL.value)">Create</button>
+            </div>
+            <div class="row formCon">
+                <h3>Tier maker.</h3>
+                <div>
+                    <label for="RName">Tier name:</label><br/>
+                    <input id="RName" type="text" name="RName" value="S"/><br/>
+                    <select id="nameSelect" class="dropdown" name="nameSelect" onchange="colorChange('NameSel')">
+                            <option value="#000000">Black</option>
+                            <option value="#ffffff">White</option>
+                            <option value="#ff0000">Red</option>
+                            <option value="#00ff00">Green</option>
+                            <option value="#0000ff">Blue</option>
+                            <option value="#ffff00">Yellow</option>
+                            <option value="#00ffff">Teal</option>
+                            <option value="#ff00ff">Purple</option>
+                            <option value="#aaaaaa">Light gray</option>
+                            <option value="#333333">Dark gray</option>
+                    </select><br/>
+                    <input for="nameSelect" type="color" class="colorpicker" id="nameColorSel" name="nameColorSel" value="#000000" disabled/>
+                </div>
+                <div>
+                    <label for="colorField">Background Color:</label><br/>
+                    <input id="colorField" type="text" name="colorField" value="#ff0000" oninput="colorChange('Field')"/><br/>
+                    <input type="color" class="colorpicker" id="colorSel" name="colorSel" value="#ff0000" onchange="colorChange('Sel')"/>
+                </div>
+                <button type="button" name="tsubmit" onclick="createTier()">Create</button>
+            </div>
+            <div class="instructions formCon">
+                <div class="inline">
+                    <h3>Item maker.</h3>
+                    <p>
+                        This form is a tool to add a block into a selected tier.<br/>
+                        <b>Note:</b> To remove an item simply click on it.
+                    </p>
+                </div><br/>
+                <div class="inline">
+                    <h3>Tier maker.</h3>
+                    <p>
+                        This is a tool to create rows, simply name the tier and add a color.<br/>
+                        <b>Note:</b> To remove a tier simply click on the icon.
+                    </p>
+                </div>
+            </div>
+            <div class="sleMenuCon formCon">
+                    <button class="sleButton" onclick="save()">Save</button>
+                    <button class="sleButton" onclick="loadData()">Load</button>
+                    <button class="sleButton" onclick="exportImg()">Export</button>
+                    <button class="sleButton" onclick="loadDefault()">Default</button>
+                    <button class="sleButton" onclick="clearTiers()">Clear</button>
+                    <div>
+                       <span class="dispop">
+                           Disable popups? 
+                        </span> 
+                        <input type="checkbox" name="dispop" id="disablePopups" onchange="updateChecked()"/>
+                    </div> 
+            </div>
+        </div>
+        <div class="container" id="mainCon">
+        </div>
+    </body>
+</html>

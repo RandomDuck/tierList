@@ -1,0 +1,209 @@
+/*
+##################################
+######### Board styles ###########
+##################################
+*/
+body{
+    background-image: url("../imgs/BodyBG.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: overlay;
+    background-color: #111111;
+}
+.mark{
+    padding: 1.9em 0 1.4em;
+    display: inline-block;
+    height: 4em;
+    width: 6em;
+    align-items: center;
+    border: #000000 0.2em solid;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 0em;
+    border-right: 0.25em solid #000000;
+}
+.markfont{
+    font-size: 3em;
+}
+.board{
+    width: 98vw;
+    min-height: 7em;
+    border: solid #000000 0.2em;
+    background-image: url("../imgs/TierListBG.jpg");
+}
+.objectFrame{
+    display: inline-block;
+    border: #000000 solid 0.2em;
+    vertical-align: middle;
+    width: 6em;
+    background: #111;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.objectImage{
+    overflow: hidden;
+    margin-bottom: -0.85em;
+    height: 5.4em;
+    width: 6em;
+}
+.objectFrame2{
+    display: inline-block;
+    border: #000000 solid 0.2em;
+    vertical-align: middle;
+    width: 7em;
+    height: 7em;
+    background: #111;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.objectImage2{
+    overflow: hidden;
+    margin: 0px;
+    width: 6.9em;
+    height: 6.9em;
+}
+.objectPlate{
+    margin: 0px;
+    text-align: center;
+    background-image: url(../imgs/Frame.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 1.4em;
+    width: 6em;
+    border-top: solid #000000 0.3em;
+    overflow: auto;
+    padding-top: 0.2em;
+    margin-top: -0.3em;
+}
+#mainCon{
+    margin:0.3em;
+    margin-top:1em;
+    border: #000000 solid 0.1em;
+}
+.container {display: inline-block;}
+
+
+/*
+##################################
+########## Form styles ###########
+##################################
+*/
+.formCon{
+    padding: 0.3em;
+    height: 13.5em;
+    display: inline-block;
+    text-align: center;
+    border: #000000 0.1em solid;
+    vertical-align: middle;
+}
+.mainFormCon{
+    display: inline-block;
+    padding-left: calc(50vw - 26.5em);
+    width: 53em;
+    margin: 0.3em;
+}
+.instructions{
+    background: #ff33aa55; 
+    padding-left: 0.5em; 
+    padding-right: 0.5em; 
+    text-align: left;
+}
+.copyright{
+    position: fixed; 
+    top: 0.2em; 
+    right: 0.2em; 
+    color: #333333
+}
+.dropdown{width: 100%;}
+.item{background: #33ff3355;}
+.row{background: #33aaff55;}
+.inline{display: inline-block; text-align: left;}
+.colorpicker{width: 90%;}
+h3{margin: 0.3em;}
+button{padding: 0.5em; margin: 0.4em;}
+#itemFile{display: none;}
+
+
+/*
+##################################
+####### Crop popup styles ########
+##################################
+*/
+.overlay{
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111111cc;
+    z-index: 4;
+}
+.cropMain{
+    position: absolute; 
+    z-index: 5; 
+    background: #333333; 
+    border: orange solid 0.1em; 
+    text-align: center; 
+    padding-bottom: 0.5em; 
+    left: calc(50vw - 10em); 
+    top: 3em;
+    max-height: 90vh;
+    overflow: auto;
+}
+.cropImgHolder{
+    display: inline-block; 
+    border: orange solid 0.1em; 
+    background: #111111; 
+    padding: 1em; 
+    margin-bottom: 0.5em;
+}
+#cropImgImg{
+    width: 18em; 
+    margin-bottom: -0.2em; 
+    position: absolute; 
+    left:1.1em;
+}
+#cropImgDiv{
+    background-blend-mode:overlay; 
+    background-size: 100%;
+    background-color: #222222;
+}
+h4{color:orange; margin: 0.1em;}
+
+
+/*
+##################################
+####### Save/Load/Export #########
+##################################
+*/
+.sleMenuCon{
+    display: inline-block;
+    border: black solid 0.1em;
+    width: 4em;
+    padding: 0.3em;
+    background: #ffaa0077;
+}
+.sleButton{
+    width: 5em; 
+    border: solid black 0.1em;
+    height: 2.35em;
+    outline: none;
+}
+#canvOverlay>button{
+    background-color: #444444;
+    color: orange;
+    border: #000000 0.1em solid;
+    border-radius: 50%; 
+    padding:calc(1vh - 2em) 1vh;
+    display: inline-block; 
+    position: fixed;
+    top:2em; 
+    right: 2em;
+    font-size: 2em;
+}
+.sleButton:hover{background-color: #aaaaaa}
+.sleButton:active{background-color: #dddddd}
+.dispop{font-size: 0.7em;}
+#canvOverlay{overflow: auto; padding: 15vh 15vw;}
